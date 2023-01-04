@@ -1,15 +1,16 @@
 @Library('utils') _
 
 pipeline {
-    agent none
+    agent {
+        label ''
+    }
     stages {
-        stage ('STG 01') {
+        stage('STG 01') {
             steps {
-                script { 
-
-                    runShCommand (["command":"date"])
-                    }
+                script {
+                    runShCommand(['command':'date'])
                 }
             }
         }
     }
+}
