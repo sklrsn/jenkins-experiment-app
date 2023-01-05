@@ -49,7 +49,8 @@ pipeline {
                                     'status':'SUCCESS',
                                     'jobname': env.JOB_NAME,
                                     'buildnumber':env.BUILD_NUMBER,
-                                    'buildurl': env.RUN_DISPLAY_URL
+                                    'buildUrl': env.BUILD_URL,
+                                    'displayUrl':env.RUN_DISPLAY_URL
                                     ])
                     }catch (Exception ex) {
                         println ex
