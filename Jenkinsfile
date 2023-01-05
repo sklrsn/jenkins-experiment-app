@@ -45,7 +45,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        buildAlert(['medium':'SLACK',
+                        buildAlert(['medium':'CONSOLE',
                                     'status':'FAILURE',
                                     'jobname': env.JOB_NAME,
                                     'buildnumber':env.BUILD_NUMBER,
