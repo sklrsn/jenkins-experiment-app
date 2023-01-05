@@ -1,5 +1,8 @@
 @Library('utils') _
 
+import org.sklrsn.models.Status
+import org.sklrsn.models.Stage
+
 pipeline {
     agent {
         label ''
@@ -51,12 +54,13 @@ pipeline {
                                     'buildnumber':env.BUILD_NUMBER,
                                     'buildUrl': env.BUILD_URL,
                                     'displayUrl':env.RUN_DISPLAY_URL,
-                                    'console': ['UNIT_TESTS':currentBuild.rawBuild.getLog(10).toString(),
-                                                'SMOKE_TESTS':currentBuild.rawBuild.getLog(10).toString(),
-                                                'BUILD_BINARIES':currentBuild.rawBuild.getLog(10).toString(),
+                                    'console': [
+                                                Stage.UNIT_TESTS:currentBuild.rawBuild.getLog(10).toString(),
+                                                Stage.SMOKE_TESTS:currentBuild.rawBuild.getLog(10).toString(),
+                                                Stage.BUILD_BINARIES :currentBuild.rawBuild.getLog(10).toString(),
                                     ],
                                     'changes': getChangelogAsString(),
-                                    'stages': [ 'UNIT_TESTS', 'SMOKE_TESTS', 'BUILD_BINARIES' ]
+                                    'stages': [ Stage.UNIT_TESTS, Stage.SMOKE_TESTS, Stage.BUILD_BINARIES ]
                                     ])
                     }catch (Exception ex) {
                         println ex
