@@ -16,6 +16,18 @@ pipeline {
                 }
             }
         }
+
+        stage('STG 01') {
+            steps {
+                script {
+                    try {
+                        runMakeCommand(['command':'build', 'path':''])
+                    }catch (Exception ex) {
+                        println ex
+                    }
+                }
+            }
+        }
     }
     post {
         success {
