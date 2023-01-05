@@ -35,7 +35,7 @@ pipeline {
         }
 
         always {
-            println 'failure'
+            println 'always'
         }
 
         failure {
@@ -43,7 +43,7 @@ pipeline {
         }
 
         aborted {
-            println 'abort'
+            println 'aborted'
         }
     }
 }
