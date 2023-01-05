@@ -50,7 +50,9 @@ pipeline {
                                     'jobname': env.JOB_NAME,
                                     'buildnumber':env.BUILD_NUMBER,
                                     'buildUrl': env.BUILD_URL,
-                                    'displayUrl':env.RUN_DISPLAY_URL
+                                    'displayUrl':env.RUN_DISPLAY_URL,
+                                    'console': currentBuild.rawBuild.getLog(30),
+                                    'changes': getChangelogAsString()
                                     ])
                     }catch (Exception ex) {
                         println ex
@@ -76,4 +78,34 @@ pipeline {
             println 'aborted'
         }
     }
+}
+
+def getChangelogAsString() {
+    def changes = getChanges()
+    changes.each { entry ->
+        changeString += " - $entry.key - $entry.value\n"
+    }
+    if (!changeString) {
+        changeString = ' - No new changes'
+    }
+    return changeString
+}
+
+def getChanges() {
+    def changes = [:]
+    def changeLogSets = currentBuild.changeSets
+
+    for (int i = 0; i < changeLogSets.size(); i++) {
+        def entries = changeLogSets[i].items
+        for (int j = 0; j < entries.length; j++) {
+            def entry = entries[j]
+            truncated_msg = entry.msg.take(50)
+            if (changes.containsKey(entry.author)) {
+                changes[entry.author].add(truncated_msg)
+            } else {
+                changes[entry.author] = [truncated_msg]
+            }
+        }
+    }
+    return changes
 }
