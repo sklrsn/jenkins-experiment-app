@@ -40,6 +40,18 @@ pipeline {
                 }
             }
         }
+
+        stage('STG 04') {
+            steps {
+                script {
+                    try {
+                        buildAlert(['medium':'CONSOLE', status:'SUCCESS', 'buildNumber':env.BUILD_NUMBER, 'buildUrl': env.RUN_DISPLAY_URL])
+                    }catch (Exception ex) {
+                        println ex
+                    }
+                }
+            }
+        }
     }
     post {
         success {
