@@ -51,7 +51,7 @@ pipeline {
                                     'buildnumber':env.BUILD_NUMBER,
                                     'buildUrl': env.BUILD_URL,
                                     'displayUrl':env.RUN_DISPLAY_URL,
-                                    'console': currentBuild.rawBuild.getLog(30).toString(),
+                                    'console': currentBuild.rawBuild.getLog(100).toString(),
                                     'changes': getChangelogAsString()
                                     ])
                     }catch (Exception ex) {
