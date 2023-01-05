@@ -52,7 +52,8 @@ pipeline {
                                     'buildUrl': env.BUILD_URL,
                                     'displayUrl':env.RUN_DISPLAY_URL,
                                     'console': currentBuild.rawBuild.getLog(100).toString(),
-                                    'changes': getChangelogAsString()
+                                    'changes': getChangelogAsString(),
+                                    'stages': [ 'UNIT_TESTS', 'SMOKE_TESTS', 'BUILD_BINARIES' ]
                                     ])
                     }catch (Exception ex) {
                         println ex
