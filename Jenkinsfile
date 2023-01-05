@@ -45,7 +45,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        buildAlert(['medium':'CONSOLE', status:'SUCCESS', 'buildNumber':env.BUILD_NUMBER, 'buildUrl': env.RUN_DISPLAY_URL])
+                        buildAlert(['medium':'CONSOLE', status:'SUCCESS', 'buildnumber':env.BUILD_NUMBER, 'buildurl': env.RUN_DISPLAY_URL])
                     }catch (Exception ex) {
                         println ex
                     }
