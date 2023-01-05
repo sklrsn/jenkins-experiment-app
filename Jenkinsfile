@@ -53,7 +53,6 @@ pipeline {
                                     'displayUrl':env.RUN_DISPLAY_URL,
                                     'console': [
                                             'UNIT_TESTS':currentBuild.rawBuild.getLog(10).toString(),
-                                            'SMOKE_TESTS':currentBuild.rawBuild.getLog(10).toString(),
                                             'BUILD_BINARIES' :currentBuild.rawBuild.getLog(10).toString(),
                                     ],
                                     'changes': getChangelogAsString(),
