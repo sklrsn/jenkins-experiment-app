@@ -1,8 +1,5 @@
 @Library('utils') _
 
-import org.sklrsn.models.Status
-import org.sklrsn.models.Stage
-
 pipeline {
     agent {
         label ''
