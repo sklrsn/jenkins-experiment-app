@@ -51,9 +51,12 @@ pipeline {
                                     'buildnumber':env.BUILD_NUMBER,
                                     'buildUrl': env.BUILD_URL,
                                     'displayUrl':env.RUN_DISPLAY_URL,
-                                    'console': currentBuild.rawBuild.getLog(100).toString(),
+                                    'console': ['UNIT_TESTS':currentBuild.rawBuild.getLog(10).toString(),
+                                                'SMOKE_TESTS':currentBuild.rawBuild.getLog(10).toString(),
+                                                'SMOKE_TESTS':currentBuild.rawBuild.getLog(10).toString(),
+                                    ],
                                     'changes': getChangelogAsString(),
-                                    'stages': [ 'UNIT_TESTS', 'SMOKE_TESTS', 'BUILD_BINARIES' ]
+                                    'stages': [ 'UNIT_TESTS', 'SMOKE_TESTS', 'SMOKE_TESTS' ]
                                     ])
                     }catch (Exception ex) {
                         println ex
