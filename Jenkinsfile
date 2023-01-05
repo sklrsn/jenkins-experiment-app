@@ -82,6 +82,7 @@ pipeline {
 
 def getChangelogAsString() {
     def changes = getChanges()
+    def changeString = ''
     changes.each { entry ->
         changeString += " - $entry.key - $entry.value\n"
     }
