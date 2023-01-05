@@ -17,7 +17,7 @@ pipeline {
             }
         }
 
-        stage('STG 01') {
+        stage('STG 02') {
             steps {
                 script {
                     try {
