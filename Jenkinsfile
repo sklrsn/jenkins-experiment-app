@@ -28,6 +28,18 @@ pipeline {
                 }
             }
         }
+
+        stage('STG 03') {
+            steps {
+                script {
+                    try {
+                        runShCommand(['command':'env'])
+                    }catch (Exception ex) {
+                        println ex
+                    }
+                }
+            }
+        }
     }
     post {
         success {
