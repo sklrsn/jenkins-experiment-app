@@ -56,7 +56,7 @@ pipeline {
                                                 'BUILD_BINARIES':currentBuild.rawBuild.getLog(10).toString(),
                                     ],
                                     'changes': getChangelogAsString(),
-                                    'stages': [ 'UNIT_TESTS', 'SMOKE_TESTS', 'SMOKE_TESTS' ]
+                                    'stages': [ 'UNIT_TESTS', 'SMOKE_TESTS', 'BUILD_BINARIES' ]
                                     ])
                     }catch (Exception ex) {
                         println ex
