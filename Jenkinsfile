@@ -46,7 +46,7 @@ pipeline {
                 script {
                     try {
                         buildAlert(['medium':'CONSOLE',
-                                    'status':'ABORTED',
+                                    'status':'FAILURE',
                                     'jobname': env.JOB_NAME,
                                     'buildnumber':env.BUILD_NUMBER,
                                     'buildUrl': env.BUILD_URL,
