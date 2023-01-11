@@ -87,7 +87,10 @@ pipeline {
                 jobs: [
                     'jenkins-multibranch-pipeline-downstream-01/down-stream-01',
                     'jenkins-multibranch-pipeline-downstream-01/down-stream-02',
-                    'jenkins-multibranch-pipeline-downstream-01/down-stream-03'
+                    'jenkins-multibranch-pipeline-downstream-01/down-stream-03',
+                    'jenkins-test-pipeline-downstream-01',
+                    'jenkins-test-pipeline-downstream-02',
+                    'jenkins-test-pipeline-downstream-03'
                 ]
             ])
         }
