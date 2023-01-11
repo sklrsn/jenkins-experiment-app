@@ -80,8 +80,8 @@ pipeline {
             build job:'jenkins-test-pipeline-downstream-03',  wait: false
 
             build job: 'jenkins-multibranch-pipeline-downstream-01/down-stream-01'
-            // build job: 'jenkins-multibranch-pipeline-downstream-01/down-stream-02' wait: false
-            // build job: 'jenkins-multibranch-pipeline-downstream-01/down-stream-03' wait: false
+            build job: 'jenkins-multibranch-pipeline-downstream-01/down-stream-02'
+            build job: 'jenkins-multibranch-pipeline-downstream-01/down-stream-03'
         }
 
         failure {
