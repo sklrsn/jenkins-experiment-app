@@ -74,9 +74,9 @@ pipeline {
 
         always {
             println 'always'
-            // build job:'jenkins-test-pipeline-downstream-01' , wait: false
-            // build job:'jenkins-test-pipeline-downstream-02' , wait: false
-            // build job:'jenkins-test-pipeline-downstream-03',  wait: false
+            build job:'jenkins-test-pipeline-downstream-01' , wait: false
+            build job:'jenkins-test-pipeline-downstream-02' , wait: false
+            build job:'jenkins-test-pipeline-downstream-03',  wait: false
 
             build job: '../jenkins-multibranch-pipeline-downstream-01/down-stream-01' wait: false
             build job: '../jenkins-multibranch-pipeline-downstream-01/down-stream-02' wait: false
