@@ -74,9 +74,9 @@ pipeline {
 
         always {
             println 'always'
-            build '../jenkins-test-pipeline-downstream-01'
-            build '../jenkins-test-pipeline-downstream-02'
-            build '../jenkins-test-pipeline-downstream-03'
+            build job:'../jenkins-test-pipeline-downstream-01' , wait: false
+            build job:'../jenkins-test-pipeline-downstream-02' , wait: false
+            build job:'../jenkins-test-pipeline-downstream-03',  wait: false
         }
 
         failure {
